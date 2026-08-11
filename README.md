@@ -24,7 +24,7 @@ ssh pi-star@192.168.x.x        # รหัสผ่านเริ่มต้�
 
 # 2) โหลดแพ็กนี้ลงเครื่อง
 cd /tmp
-git clone https://github.com/<ชื่อคุณ>/pi-star-thai-voice.git
+git clone https://github.com/Masmelo-TH/pi-star-thai-voice.git
 cd pi-star-thai-voice
 
 # 3) ติดตั้ง (สคริปต์จะสำรองไฟล์อังกฤษเดิมเป็น .orig, ก๊อปไฟล์ไทย, รีสตาร์ตเซอร์วิสให้เอง)
