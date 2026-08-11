@@ -1,0 +1,5 @@
+# Scripts and index files MUST stay Unix (LF) so they run/parse on the Pi
+*.sh    text eol=lf
+*.indx  text eol=lf
+# AMBE voice data is binary — never touch line endings
+*.ambe  binary
