@@ -8,7 +8,9 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SRC="$SCRIPT_DIR/voices"
-FILES="en_GB.indx en_GB.ambe TIME_en_GB.indx TIME_en_GB.ambe"
+# Only the MAIN voice pack (link/reflector announcements). The TIME announcements are left
+# untouched (they stay in the node's original English) — Thai 12h/AM-PM ordering is unnatural.
+FILES="en_GB.indx en_GB.ambe"
 
 # Candidate install dirs (install into every one that already has en_GB.indx)
 CANDIDATES="/usr/local/etc/ircddbgateway /usr/local/etc"
@@ -61,11 +63,9 @@ if [ -f /etc/ircddbgateway ]; then
   fi
 fi
 
-echo "-- restarting services"
+echo "-- restarting ircddbgateway"
 systemctl restart ircddbgateway 2>/dev/null && echo "   ircddbgateway restarted"
-# Time announcements are a SEPARATE service that only reads TIME_* at startup:
-systemctl restart timeserver   2>/dev/null && echo "   timeserver restarted"
 
 echo ""
-echo "=== DONE. Link a D-Star reflector or wait for the hourly time announce to hear Thai. ==="
+echo "=== DONE. Link a D-Star reflector to hear the Thai announcement. ==="
 echo "    To revert to English:  sudo bash restore.sh"

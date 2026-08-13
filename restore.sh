@@ -4,7 +4,7 @@
 #  Run ON the hotspot:   sudo bash restore.sh
 # ==========================================================================
 set -e
-FILES="en_GB.indx en_GB.ambe TIME_en_GB.indx TIME_en_GB.ambe"
+FILES="en_GB.indx en_GB.ambe"
 CANDIDATES="/usr/local/etc/ircddbgateway /usr/local/etc"
 
 echo "=== Restore English voice pack ==="
@@ -31,5 +31,4 @@ done
 [ "$FOUND" = "1" ] || { echo "!! No .orig backups found — nothing to restore."; exit 1; }
 
 systemctl restart ircddbgateway 2>/dev/null || true
-systemctl restart timeserver   2>/dev/null || true
 echo "=== English voice restored. ==="
